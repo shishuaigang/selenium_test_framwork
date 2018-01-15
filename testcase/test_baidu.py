@@ -4,10 +4,11 @@ import time
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from utils.readYaml import ReadYaml
+from utils import location
 
 
 class TestBaidu(unittest.TestCase):
-    url = ReadYaml().yaml_data()
+    url = ReadYaml(location.CONFIG_FILE).yaml_data()['URL']
     phone_number = (By.XPATH, '//*[@id="login-form"]/fieldset/label[1]/span/input')
     password = (By.XPATH, '//*[@id="login-form"]/fieldset/label[2]/span/input')
 
