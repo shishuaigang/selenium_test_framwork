@@ -4,28 +4,29 @@ import HTMLTestRunner
 import time
 
 import os
+from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
-from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+
 from utils.readYaml import ReadYaml
 from utils import location
+from page import login
 
 
 class TestIntranet(unittest.TestCase):
     url = ReadYaml(location.CONFIG_FILE).yaml_data()['URL']
-    phone_number = (By.XPATH, '//*[@id="login-form"]/fieldset/label[1]/span/input')
-    password = (By.XPATH, '//*[@id="login-form"]/fieldset/label[2]/span/input')
-    login_btn = (By.XPATH, '//*[@id="login-form"]/fieldset/button')
 
     def setUp(self):
         self.FF = webdriver.Chrome()
         self.FF.get(self.url)
 
-    def testSearch(self):
-        self.FF.find_element(*self.phone_number).clear()
-        self.FF.find_element(*self.phone_number).send_keys('15102100358')
-        self.FF.find_element(*self.password).clear()
-        self.FF.find_element(*self.password).send_keys('123456')
-        self.FF.find_element(*self.login_btn).click()
+    def testLogin(self):
+        self.FF.find_element(*login.phone_number).clear()
+        self.FF.find_element(*login.phone_number).send_keys('15102100358')
+        self.FF.find_element(*login.password).clear()
+        WebDriverWait(self.FF, 20, 0.5).until(EC.visibility_of_element_located(login.password))
+        self.FF.find_element(*login.password).send_keys('123456')
+        self.FF.find_element(*login.login_btn).click()
         time.sleep(5)
 
     def tearDown(self):
