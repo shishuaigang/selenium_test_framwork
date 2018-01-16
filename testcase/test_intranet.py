@@ -1,9 +1,7 @@
 import unittest
-import HTMLTestRunner
 
 import time
 
-import os
 from selenium.webdriver.support import expected_conditions as EC
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
@@ -41,15 +39,3 @@ class TestIntranet(unittest.TestCase):
         WebDriverWait(self.FF, 20, 0.5).until(EC.visibility_of_element_located(Menu.Workbill_Config))
         self.FF.find_element(*Menu.Workbill_Config).click()
         time.sleep(20)
-
-
-if __name__ == '__main__':
-    test_unit = unittest.TestSuite()
-    now = time.strftime('%Y%m%d%H%M', time.localtime())
-    print(location.REPORT_PATH)
-    f = open(os.path.join(location.REPORT_PATH, 'report_' + now + '.html'), 'w', encoding='utf-8')
-    runner = HTMLTestRunner.HTMLTestRunner(stream=f, title=u'测试报告', description='')
-    test_unit.addTest(TestIntranet('testLogin'))
-    test_unit.addTest(TestIntranet('testSearchWorkbill'))
-    runner.run(test_unit)
-    f.close()
