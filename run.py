@@ -19,11 +19,11 @@ def main():
     f = open(os.path.join(location.REPORT_PATH, 'report_' + now + '.html'), 'w', encoding='utf-8')
     runner = HTMLTestRunner.HTMLTestRunner(stream=f, title='Selenium自动化测试报告', description='')
     test_unit.addTest(TestIntranet('testLogin'))
-    # test_unit.addTest(TestIntranet('testSearchWorkbill'))
-    # test_unit.addTest(unittest.makeSuite(TestParametrization))
+    test_unit.addTest(TestIntranet('testSearchWorkbill'))
+    test_unit.addTest(unittest.makeSuite(TestParametrization))
     runner.run(test_unit)
     f.close()
-    # SendMail(now).send_mail()
+    SendMail(now).send_mail()
 
 
 if __name__ == '__main__':

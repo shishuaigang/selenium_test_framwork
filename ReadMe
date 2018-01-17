@@ -2,11 +2,12 @@ selenium_test_framework
     |--config（配置文件）
     |--data（数据文件）
     |--drivers（驱动）
-    |--log（日志）
+    |--page（页面）
     |--report（报告）
     |--test（测试用例）
     |--utils（公共方法）
     |--ReadMe（说明性的文件）
+    |--run.py（python run.py）
 
 *************************************************************************************
 
