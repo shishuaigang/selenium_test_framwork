@@ -8,7 +8,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 from utils.readYaml import ReadYaml
 from utils import location
-from page import login, Menu
+from page import login, menu
 
 
 class TestIntranet(unittest.TestCase):
@@ -17,25 +17,26 @@ class TestIntranet(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         option = webdriver.ChromeOptions()
-        option.add_argument('disable-infobars')
+        option.add_argument('disable-infobars')  # 隐藏'Chrome正在受到自动软件的控制'这个提示语
 
-        cls.FF = webdriver.Chrome(executable_path="C:\Selenium\chromeDriver\chromedriver.exe", chrome_options=option)
-        cls.FF.get(cls.url)
-        cls.FF.maximize_window()
+        cls.driver = webdriver.Chrome(executable_path="C:\Selenium\chromeDriver\chromedriver.exe", chrome_options=option)
+        cls.driver.get(cls.url)
+        cls.driver.maximize_window()
 
     @classmethod
     def tearDownClass(cls):
-        cls.FF.quit()
+        cls.driver.quit()
 
     def testLogin(self):
-        self.FF.find_element(*login.phone_number).clear()
-        self.FF.find_element(*login.phone_number).send_keys('15102100358')
-        self.FF.find_element(*login.password).clear()
-        self.FF.find_element(*login.password).send_keys('123456')
-        self.FF.find_element(*login.login_btn).click()
-        self.assertNotEqual(EC.visibility_of_element_located('我的工作面板'), False)
+        self.driver.find_element(*login.phone_number).clear()
+        self.driver.find_element(*login.phone_number).send_keys('15102100358')
+        self.driver.find_element(*login.password).clear()
+        self.driver.find_element(*login.password).send_keys('123456')
+        self.driver.find_element(*login.login_btn).click()
+        WebDriverWait(self.driver, 20, 0.5).until(EC.visibility_of_element_located(menu.MyWorkPanel))
+        self.assertEqual(self.driver.find_element(*menu.MyWorkPanel).is_displayed(), True)
 
     def testSearchWorkbill(self):
-        WebDriverWait(self.FF, 20, 0.5).until(EC.visibility_of_element_located(Menu.Workbill_Config))
-        self.FF.find_element(*Menu.Workbill_Config).click()
+        WebDriverWait(self.driver, 20, 0.5).until(EC.visibility_of_element_located(menu.Workbill_Config))
+        self.driver.find_element(*menu.Workbill_Config).click()
         time.sleep(20)
