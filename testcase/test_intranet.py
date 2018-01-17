@@ -2,7 +2,7 @@ import unittest
 
 import time
 
-from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support import expected_conditions as ec
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 
@@ -19,7 +19,7 @@ class TestIntranet(unittest.TestCase):
         option = webdriver.ChromeOptions()
         option.add_argument('disable-infobars')  # 隐藏'Chrome正在受到自动软件的控制'这个提示语
 
-        cls.driver = webdriver.Chrome(executable_path="C:\Selenium\chromeDriver\chromedriver.exe", chrome_options=option)
+        cls.driver = webdriver.Chrome(executable_path=location.CHROME_DRIVER_PATH, chrome_options=option)
         cls.driver.get(cls.url)
         cls.driver.maximize_window()
 
@@ -33,10 +33,10 @@ class TestIntranet(unittest.TestCase):
         self.driver.find_element(*login.password).clear()
         self.driver.find_element(*login.password).send_keys('123456')
         self.driver.find_element(*login.login_btn).click()
-        WebDriverWait(self.driver, 20, 0.5).until(EC.visibility_of_element_located(menu.MyWorkPanel))
+        WebDriverWait(self.driver, 20, 0.5).until(ec.visibility_of_element_located(menu.MyWorkPanel))
         self.assertEqual(self.driver.find_element(*menu.MyWorkPanel).is_displayed(), True)
 
     def testSearchWorkbill(self):
-        WebDriverWait(self.driver, 20, 0.5).until(EC.visibility_of_element_located(menu.Workbill_Config))
+        WebDriverWait(self.driver, 20, 0.5).until(ec.visibility_of_element_located(menu.Workbill_Config))
         self.driver.find_element(*menu.Workbill_Config).click()
         time.sleep(20)

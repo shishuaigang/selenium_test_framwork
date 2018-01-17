@@ -5,7 +5,7 @@ import os
 
 import time
 from parameterized import parameterized
-from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support import expected_conditions as ec
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 
@@ -21,7 +21,7 @@ class TestParametrization(unittest.TestCase):
     param = list(zip(phonenumber, password))
 
     def setUp(self):
-        self.driver = webdriver.Chrome(executable_path="C:\Selenium\chromeDriver\chromedriver.exe")
+        self.driver = webdriver.Chrome(executable_path=location.CHROME_DRIVER_PATH)
         self.driver.get(self.url)
         self.driver.maximize_window()
 
@@ -32,7 +32,7 @@ class TestParametrization(unittest.TestCase):
         self.driver.find_element(*login.password).clear()
         self.driver.find_element(*login.password).send_keys(password)
         self.driver.find_element(*login.login_btn).click()
-        WebDriverWait(self.driver, 20, 0.5).until(EC.visibility_of_element_located(menu.MyWorkPanel))
+        WebDriverWait(self.driver, 20, 0.5).until(ec.visibility_of_element_located(menu.MyWorkPanel))
         self.assertEqual(self.driver.find_element(*menu.MyWorkPanel).is_displayed(), True)
 
     def tearDown(self):
