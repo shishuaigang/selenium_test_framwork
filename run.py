@@ -4,13 +4,25 @@ import unittest
 import time
 import sys
 import os
-
+import functools
 from testcase.test_intranet import TestIntranet
 from testcase.testParametrization import TestParametrization
 from utils import location
 from utils.sendMail import SendMail
 
 
+def gettime(func):
+    @functools.wraps(func)
+    def wrapper(*args, **kwargs):
+        bg_time = time.time()
+        func(*args, **kwargs)
+        end_time = time.time()
+        print(end_time - bg_time)
+
+    return wrapper
+
+
+@gettime
 def main():
     sys.path.append(location.ROOT_DIR)  # 将整个项目文件夹加入环境变量,这样不会出现在cmd运行中no import moudle的问题
     test_unit = unittest.TestSuite()
