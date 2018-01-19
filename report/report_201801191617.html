@@ -2,7 +2,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>测试报告</title>
+    <title>Selenium自动化测试报告</title>
     <meta name="generator" content="HTMLTestRunner 0.8.2"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     
@@ -188,10 +188,10 @@ function showOutput(id, name) {
 --></script>
 
 <div class='heading'>
-<h1>测试报告</h1>
-<p class='attribute'><strong>Start Time:</strong> 2018-01-15 16:20:43</p>
-<p class='attribute'><strong>Duration:</strong> 0:00:23.205565</p>
-<p class='attribute'><strong>Status:</strong> Pass 1</p>
+<h1>Selenium自动化测试报告</h1>
+<p class='attribute'><strong>Start Time:</strong> 2018-01-19 16:17:18</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:12.532331</p>
+<p class='attribute'><strong>Status:</strong> Pass 1 Skip 1</p>
 
 <p class='description'></p>
 </div>
@@ -211,6 +211,7 @@ function showOutput(id, name) {
 <col align='right' />
 <col align='right' />
 <col align='right' />
+<col align='right' />
 </colgroup>
 <tr id='header_row'>
     <td>Test Group/Test case</td>
@@ -218,29 +219,56 @@ function showOutput(id, name) {
     <td>Pass</td>
     <td>Fail</td>
     <td>Error</td>
+    <td>Skip</td>
     <td>View</td>
 </tr>
 
 <tr class='passClass'>
-    <td>TestIntranet</td>
-    <td>1</td>
+    <td>testcase.testIntranet.TestIntranet: 测试内网</td>
+    <td>2</td>
     <td>1</td>
     <td>0</td>
     <td>0</td>
-    <td><a href="javascript:showClassDetail('c1',1)">Detail</a></td>
+    <td>1</td>
+    <td><a href="javascript:showClassDetail('c1',2)">Detail</a></td>
 </tr>
 
 <tr id='pt1.1' class='hiddenRow'>
-    <td class='none'><div class='testcase'>testSearch</div></td>
-    <td colspan='5' align='center'>pass</td>
+    <td class='none'><div class='testcase'>testLogin: 登录测试</div></td>
+    <td colspan='6' align='center'>pass</td>
+</tr>
+
+<tr id='ft1.2' class='none'>
+    <td class='none'><div class='testcase'>testSearchWorkbill</div></td>
+    <td colspan='6' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.2')" >
+        skip</a>
+
+    <div id='div_ft1.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.2: 强制跳过这个测试
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
 </tr>
 
 <tr id='total_row'>
     <td>Total</td>
-    <td>1</td>
+    <td>2</td>
     <td>1</td>
     <td>0</td>
     <td>0</td>
+    <td>1</td>
     <td>&nbsp;</td>
 </tr>
 </table>

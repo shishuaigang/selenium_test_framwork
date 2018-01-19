@@ -8,10 +8,12 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 from utils.readYaml import ReadYaml
 from utils import location
-from page import login, menu
+from page import menu
+from commonActions.login import Login
 
 
 class TestIntranet(unittest.TestCase):
+    """测试内网"""
     url = ReadYaml(location.CONFIG_FILE).yaml_data()['URL']
 
     @classmethod
@@ -28,15 +30,13 @@ class TestIntranet(unittest.TestCase):
         cls.driver.quit()
 
     def testLogin(self):
-        self.driver.find_element(*login.phone_number).clear()
-        self.driver.find_element(*login.phone_number).send_keys('15102100358')
-        self.driver.find_element(*login.password).clear()
-        self.driver.find_element(*login.password).send_keys('123456')
-        self.driver.find_element(*login.login_btn).click()
+        """登录测试"""
+        Login(self.driver, '15102100358', '123456').login()
         WebDriverWait(self.driver, 20, 0.5).until(ec.visibility_of_element_located(menu.MyWorkPanel))
         self.assertEqual(self.driver.find_element(*menu.MyWorkPanel).is_displayed(), True)
 
+    @unittest.skip("强制跳过这个测试")
     def testSearchWorkbill(self):
         WebDriverWait(self.driver, 20, 0.5).until(ec.visibility_of_element_located(menu.Workbill_Config))
         self.driver.find_element(*menu.Workbill_Config).click()
-        time.sleep(20)
+        time.sleep(5)

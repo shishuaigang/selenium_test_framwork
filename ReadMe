@@ -1,4 +1,5 @@
 selenium_test_framework
+    |--commonActions（通用操作）
     |--config（配置文件）
     |--data（数据文件）
     |--drivers（驱动）
