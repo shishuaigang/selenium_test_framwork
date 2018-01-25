@@ -11,11 +11,11 @@ class Driver:
 
         browser_info = ReadYaml(location.CONFIG_FILE).yaml_data()
 
-        if browser_info['Browser'].upper() == 'CHROME':
+        if browser_info['BROWSER'].upper() == 'CHROME':
             print("Please confirm the matching releationship of chromedriver and chrome")
             self.d = webdriver.Chrome(executable_path=browser_info['BROWSER_DRIVER_PATH'], chrome_options=option)
 
-        elif browser_info['Browser'].upper() == 'FIREFOX':
+        elif browser_info['BROWSER'].upper() == 'FIREFOX':
             print("Please confirm the matching releationship of geckodriver and firefox")
             self.d = webdriver.Firefox(executable_path=browser_info['BROWSER_DRIVER_PATH'])
 
