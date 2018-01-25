@@ -19,6 +19,3 @@ PAGE_PATH = os.path.join(ROOT_DIR, 'page')
 REPORT_PATH = os.path.join(ROOT_DIR, 'report')
 TESTCASE_PATH = os.path.join(ROOT_DIR, 'testcase')
 UTILS_PATH = os.path.join(ROOT_DIR, 'utils')
-
-CHROME_DRIVER_PATH = r"C:\Selenium\chromeDriver\chromedriver.exe"
-FIREFOX_DRIVER_PATH = r"C:\Selenium\firefoxDriver\geckodriver.exe"

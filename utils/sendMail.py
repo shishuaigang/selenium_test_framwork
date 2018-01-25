@@ -15,9 +15,9 @@ class SendMail:
 
     def send_mail(self):
         # 定义发件人邮箱，密码和收件人的list
-        sender = ReadYaml(location.CONFIG_FILE).yaml_data()['mail_sender']
-        passwd = ReadYaml(location.CONFIG_FILE).yaml_data()['mail_password']
-        receiver = ReadYaml(location.CONFIG_FILE).yaml_data()['mail_recivers']
+        sender = ReadYaml(location.CONFIG_FILE).yaml_data()['MAIL_SENDER']
+        passwd = ReadYaml(location.CONFIG_FILE).yaml_data()['MAIL_PASSWORD']
+        receiver = ReadYaml(location.CONFIG_FILE).yaml_data()['MAIL_RECEIVERS']
         msg = MIMEMultipart()
         msg["Subject"] = 'Selenium自动化测试报告'  # 邮件主题
         msg["From"] = sender

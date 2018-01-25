@@ -4,9 +4,8 @@ import os
 
 from parameterized import parameterized
 from selenium.webdriver.support import expected_conditions as ec
-from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
-
+from drivers.driver import Driver
 from commonActions.login import Login
 from page import menu
 from utils import location
@@ -21,7 +20,7 @@ class TestParametrization(unittest.TestCase):
     param = list(zip(phonenumber, password))
 
     def setUp(self):
-        self.driver = webdriver.Chrome(executable_path=location.CHROME_DRIVER_PATH)
+        self.driver = Driver().driver()
         self.driver.get(self.url)
         self.driver.maximize_window()
 

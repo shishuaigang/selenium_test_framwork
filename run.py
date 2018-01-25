@@ -8,7 +8,6 @@ from testcase.testIntranet import TestIntranet
 from testcase.testParametrization import TestParametrization
 from utils import location, getTime
 from utils.sendMail import SendMail
-from utils import location
 
 
 @getTime.gettime

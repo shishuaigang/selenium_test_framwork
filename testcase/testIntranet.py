@@ -3,9 +3,8 @@ import unittest
 import time
 
 from selenium.webdriver.support import expected_conditions as ec
-from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
-
+from drivers.driver import Driver
 from utils.readYaml import ReadYaml
 from utils import location
 from page import menu
@@ -18,10 +17,7 @@ class TestIntranet(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        option = webdriver.ChromeOptions()
-        option.add_argument('disable-infobars')  # 隐藏'Chrome正在受到自动软件的控制'这个提示语
-
-        cls.driver = webdriver.Chrome(executable_path=location.CHROME_DRIVER_PATH, chrome_options=option)
+        cls.driver = Driver().driver()
         cls.driver.get(cls.url)
         cls.driver.maximize_window()
 

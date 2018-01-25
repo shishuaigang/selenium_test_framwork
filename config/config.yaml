@@ -1,4 +1,6 @@
 URL: http://192.168.31.99
-mail_sender: sgshi@in-road.com
-mail_password: Shishuaigang123!
-mail_recivers: [sgshi@in-road.com,shishuaigang@163.com]
+BROWSER: chrome
+BROWSER_DRIVER_PATH: C:\Selenium\chromeDriver\chromedriver.exe
+MAIL_SENDER: sgshi@in-road.com
+MAIL_PASSWORD: Shishuaigang123!
+MAIL_RECEIVERS: [sgshi@in-road.com,shishuaigang@163.com]
