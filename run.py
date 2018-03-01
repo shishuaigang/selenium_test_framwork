@@ -29,7 +29,7 @@ def main():
     dicsover = unittest.TestLoader().discover(location.TESTCASE_PATH)
     runner.run(dicsover)
     f.close()
-    SendMail(now).send_mail()
+    # SendMail(now).send_mail()
 
 
 if __name__ == '__main__':
