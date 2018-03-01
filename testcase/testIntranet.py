@@ -4,7 +4,7 @@ import unittest
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.wait import WebDriverWait
 
-from commonActions.login import Login
+from commonActions.loginsys import LoginSys
 from drivers.driver import Driver
 from page import menu
 from utils import location
@@ -27,7 +27,7 @@ class TestIntranet(unittest.TestCase):
 
     def testLogin(self):
         """登录测试"""
-        Login(self.driver, '15102100358', '123456').login()
+        LoginSys(self.driver, '15102100358', '123456').login()
         WebDriverWait(self.driver, 20, 0.5).until(ec.visibility_of_element_located(menu.MyWorkPanel))
         self.assertEqual(self.driver.find_element(*menu.MyWorkPanel).is_displayed(), True)
 

@@ -1,7 +1,10 @@
+"""
+登录操作的封装
+"""
 from page import login
 
 
-class Login:
+class LoginSys:
     def __init__(self, driver, username, password):
         self.uname = username
         self.pwd = password
