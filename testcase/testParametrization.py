@@ -1,12 +1,12 @@
-import unittest
-
 import os
+import unittest
 
 from parameterized import parameterized
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.wait import WebDriverWait
-from drivers.driver import Driver
+
 from commonActions.login import Login
+from drivers.driver import Driver
 from page import menu
 from utils import location
 from utils.readYaml import ReadYaml

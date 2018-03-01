@@ -1,14 +1,14 @@
-import unittest
-
 import time
+import unittest
 
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.wait import WebDriverWait
-from drivers.driver import Driver
-from utils.readYaml import ReadYaml
-from utils import location
-from page import menu
+
 from commonActions.login import Login
+from drivers.driver import Driver
+from page import menu
+from utils import location
+from utils.readYaml import ReadYaml
 
 
 class TestIntranet(unittest.TestCase):

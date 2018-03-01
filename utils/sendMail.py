@@ -1,12 +1,11 @@
+import os
+import smtplib
+from email.mime.application import MIMEApplication
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-from email.mime.application import MIMEApplication
-import smtplib
 
-import os
-
-from utils.readYaml import ReadYaml
 from utils import location
+from utils.readYaml import ReadYaml
 
 
 class SendMail:
@@ -38,7 +37,3 @@ class SendMail:
             s.close()
         else:
             raise FileNotFoundError("测试报告不存在")
-
-
-if __name__ == '__main__':
-    SendMail('201801151620').send_mail()

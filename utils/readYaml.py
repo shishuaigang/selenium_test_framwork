@@ -1,5 +1,6 @@
-import yaml
 import os
+
+import yaml
 
 
 class ReadYaml:
@@ -12,8 +13,3 @@ class ReadYaml:
                 return yaml.load(f)
         else:
             raise FileNotFoundError('文件不存在')
-
-
-if __name__ == '__main__':
-    data = ReadYaml(r'C:\Users\shishuaigang\Desktop\Important\selenium_test_framwork\config\config.yaml').yaml_data()
-    print(data['URL'])
