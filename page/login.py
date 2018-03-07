@@ -1,8 +1,8 @@
 from selenium.webdriver.common.by import By
 
-phone_number = (By.XPATH, '//*[@id="login-form"]/fieldset/label[1]/span/input')
-password = (By.XPATH, '//*[@id="login-form"]/fieldset/label[2]/span/input')
-login_btn = (By.XPATH, '//*[@id="login-form"]/fieldset/button')
-remember_password = (By.XPATH, '//*[@id="login-form"]/fieldset/div[1]/label/span')
-register = (By.XPATH, '//*[@id="login-form"]/fieldset/div[3]/a[1]')
-forget_password = (By.XPATH, '//*[@id="login-form"]/fieldset/div[3]/a[2]')
+phone_number = (By.CSS_SELECTOR, 'input[name=phonenumber]')
+password = (By.CSS_SELECTOR, 'input[name=password]')
+login_btn = (By.CSS_SELECTOR, 'button.btn.btn-lg.btn-block.btn-primary')
+remember_password = (By.CSS_SELECTOR, 'span.lbl')
+register = (By.LINK_TEXT, '立即注册')
+forget_password = (By.LINK_TEXT, '忘记密码')

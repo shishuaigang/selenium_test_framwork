@@ -25,7 +25,7 @@ class TestParametrization(unittest.TestCase):
         self.driver.maximize_window()
 
     @parameterized.expand(param)
-    # @unittest.skip("测试强制跳过")
+    @unittest.skip("测试强制跳过")
     # 装饰器调用时从下往上，执行时从上往下
     def testLogin(self, username, password):
         """参数化测试登录"""
